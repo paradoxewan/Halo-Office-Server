@@ -1,0 +1,28 @@
+<template name="nomadixdashboard">
+
+
+
+</template>
+
+<template name="notificationListTwo">
+    <ul class="list-group clear-list m-t">
+        {{#each this}}
+            {{>notificationElement}}
+        {{/each}}
+    </ul>
+</template>
+
+<template name="notificationElement">
+    <li class="list-group-item">
+        <span class="pull-right">
+            {{time}}
+        </span>
+        <span class="label label-{{labelClass}}">{{number}}</span> {{content}}
+    </li>
+</template>
+
+
+
+<template name="updateJobForm">
+ {{> quickForm collection="jobs_data" _id=this._id id="updateJobForm" type="update"}}
+</template>

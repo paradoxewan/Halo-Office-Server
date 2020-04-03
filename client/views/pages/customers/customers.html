@@ -1,0 +1,81 @@
+<template name="customers">
+
+    <!-- Page heading -->
+    {{> pageHeading title='AES Customers' category='App views' }}
+
+    <div class="wrapper wrapper-content animated fadeInUp">
+
+        <div class="ibox">
+            <div class="ibox-title">
+                <h5>All customers assigned to this account {{Customers.count}}</h5>
+                <div class="ibox-tools">
+                    <a href="/newcustomer" class="btn btn-primary btn-xs">Create new customer account</a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div class="row m-b-sm m-t-sm">
+                    <div class="col-md-1">
+
+                    </div>
+                    <div class="col-md-11"><div class="input-group"><input type="text" id="searchbox" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn"><button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div></div>
+                </div>
+
+                <div class="project-list">
+
+                    <table class="table table-hover">
+                        <tbody>
+                          {{#each customers}}
+                          {{> customer}}
+                      {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+
+<template name="customer">
+         <tr>
+             <td class="project-status">
+                 <span class="label label-primary">{{accountactive}}</span>
+             </td>
+             <td class="project-title">
+                 <small><a href="../customerdetail/{{_id}} ">{{customer_name}}</a></small>
+                 <br/>
+                 <small>Aes Ref: {{aesacname}} </small>
+             </td>
+
+             <td class="project-people">
+                 <!--<a href=""><img alt="image" class="img-circle" src="img/a3.jpg"></a>
+                 <a href=""><img alt="image" class="img-circle" src="img/a1.jpg"></a>
+                 <a href=""><img alt="image" class="img-circle" src="img/a2.jpg"></a>
+                 <a href=""><img alt="image" class="img-circle" src="img/a4.jpg"></a>
+                 <a href=""><img alt="image" class="img-circle" src="img/a5.jpg"></a> -->
+             </td>
+
+             <td class="project-actions">
+
+                              <button id="view_button"  value={{this._id}} type="button" class="btn btn-primary btn-sm">View Related Jobs</button>
+
+
+                 {{#afModal class="btn btn-primary btn-sm" collection= "Jobs" operation="insert" doc=_id}}
+                 Create Job
+                 {{/afModal}}
+
+
+    {{#if isInRole 'admin'}}
+                  {{#afModal class="btn btn-primary btn-sm" collection= "Customers" operation="update" doc=_id}}
+                  Edit Customer
+                  {{/afModal}}
+
+                       {{#afModal class="btn btn-danger btn-sm" collection= "Customers" operation="remove" doc=_id}}
+                  Delete Customer
+                  {{/afModal}}
+{{/if}}
+
+
+             </td>
+         </tr>
+</template>

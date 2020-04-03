@@ -1,0 +1,33 @@
+
+<template name="useradmin">
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Roles</th>
+        <th>Notes</th>
+        <th>Admin</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{> userList }}
+    </tbody>
+  </table>
+</div>
+</template>
+
+<template name="userList">
+  {{#each allUsers}}
+    <tr>
+      <td>{{username}}</td>
+      <input type="hidden" id="roles_{{username}}" value="{{userRoles}}">
+      <td>
+        {{#each allRoles}}
+          {{userName}}
+          <input type="checkbox" name="roles" value="{{name}}">{{name}}
+        {{/each}}
+      </td>
+    </tr>
+  {{/each}}
+</template>

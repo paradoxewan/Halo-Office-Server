@@ -1,0 +1,52 @@
+<template name="mainLayout">
+
+    <!-- Wrapper-->
+    <div id="wrapper">
+
+        {{> actual }}
+
+</div>
+</template>
+
+
+<template name="actual">
+  <!--  {{> sAlert}}
+    {{#if idle}}
+    {{>matrix}}
+      {{else}} -->
+  <div id="wrapper">
+
+      <!-- Navigation -->
+      {{> navigation }}
+    <!--    {{> autoformModals}} -->
+      <!-- Page wraper -->
+      <div id="page-wrapper" class="gray-bg">
+
+          <!-- Page wrapper -->
+          {{#if currentUser}}
+          {{> topNavbar }}
+    {{/if}}
+
+        <!-- Main view  -->
+          {{#if currentUser}}
+
+          {{#if Template.subscriptionsReady}}
+              {{>Template.dynamic template=content}}
+            {{else}}
+             {{>loading}}
+            {{/if}}
+
+
+          {{else}}
+   {{>login}}
+
+          {{/if}}
+          <!-- Footer -->
+          {{> footer }}
+      </div>
+      <!-- End page wrapper-->
+        {{> rightSidebar }}
+  </div>
+
+  <!-- End wrapper-->
+  </template>

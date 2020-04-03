@@ -1,0 +1,29 @@
+<template name="login">
+    <div class="middle-box text-center loginscreen animated fadeInDown">
+        <div>
+            <div>
+
+                <h1 class="logo-name">V1.1</h1>
+
+            </div>
+            <h3>Welcome to HALO</h3>
+            <p>This is a secure login. All attempts to enter passwords are logged with geolocation and advanced browser fingerprinting techniques. Unauthorised attempts to access this system will be logged.
+            </p>
+
+            <form class="m-t" role="form">
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Username" required="" name="loginEmail">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password" required="" name="loginPassword">
+                </div>
+                <button type="submit" value="Login" class="btn btn-primary block full-width m-b">Login</button>
+
+                <a href="#"><small>Forgot password?</small></a>
+                <p class="text-muted text-center"><small>Do not have an account?</small></p>
+                <a class="btn btn-sm btn-white btn-block" href="/register">Create an account</a>
+            </form>
+            <p class="m-t"> <small>Halo - Nomadix Media 2020</small> </p>
+        </div>
+    </div>
+</template>
